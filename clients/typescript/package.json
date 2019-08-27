@@ -1,0 +1,25 @@
+{
+    "name": "tsoa-demo-client",
+    "version": "0.0.0",
+    "description": "",
+    "main": "dist/src/index.js",
+    "types": "dist/src/index.d.ts",
+    "author": {
+        "name": "Noam Okman",
+        "email": "noamokman@gmail.com",
+        "url": "https://github.com/noamokman"
+    },
+    "license": "MIT",
+    "scripts": {
+        "prepublish": "rm -rf dist && mkdir -p generated && tsc"
+    },
+    "dependencies": {
+        "portable-fetch": "^3.0.0",
+        "querystring": "^0.2.0",
+        "url": "^0.11.0"
+    },
+    "devDependencies": {
+        "tslib": "^1.9.3",
+        "typescript": "^3.5.3"
+    }
+}

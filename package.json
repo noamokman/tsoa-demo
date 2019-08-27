@@ -1,0 +1,43 @@
+{
+    "name": "tsoa-demo",
+    "version": "1.0.0",
+    "description": "tsoa demo",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "mkdir -p ./src/server/routes/v1/ && yarn generate && tsc -p tsconfig.json && mkdir -p ./dist/server/swagger/v1 && cp ./src/server/swagger/v1/swagger.json ./dist/server/swagger/v1",
+        "build:clients": "yarn build && yarn build:clients:ts",
+        "build:clients:ts": "yarn build:clients:ts:generate && yarn build:clients:ts:install",
+        "build:clients:ts:generate": "java -jar clients/swagger-codegen-cli-2.4.7.jar generate -i src/server/swagger/v1/swagger.json -l typescript-fetch --remove-operation-id-prefix -c clients/codegen-config.json -o ./clients/typescript/generated",
+        "build:clients:ts:install": "cd clients/typescript && yarn",
+        "generate": "tsoa routes --configuration ./src/server/generate-v1.json && tsoa swagger --configuration ./src/server/generate-v1.json",
+        "start": "ts-node src/index.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/noamokman/tsoa-demo.git"
+    },
+    "author": {
+        "name": "Noam Okman",
+        "email": "noamokman@gmail.com",
+        "url": "https://github.com/noamokman"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/noamokman/tsoa-demo/issues"
+    },
+    "homepage": "https://github.com/noamokman/tsoa-demo#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "swagger-ui-express": "^4.0.7",
+        "tslib": "^1.10.0",
+        "tsoa": "^2.4.11"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.1",
+        "@types/node": "^12.7.2",
+        "prettier": "^1.18.2",
+        "ts-node": "^8.3.0",
+        "typescript": "^3.5.3"
+    }
+}
