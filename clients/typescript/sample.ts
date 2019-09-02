@@ -9,6 +9,10 @@ const main = async () => {
 
     const morty = users.find(user => user.firstName === 'Morty');
 
+    if (!morty) {
+        return;
+    }
+
     await usersApi._delete(morty.id);
 
     const newUsers = await usersApi.getAll();
