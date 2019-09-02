@@ -12,7 +12,7 @@ let users: User[] = [
     {
         id: '2',
         firstName: 'Morty',
-        lastName: 'Sanchez',
+        lastName: 'Smith',
         email: 'morty@gmail.com',
     },
 ];
