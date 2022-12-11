@@ -28,7 +28,7 @@
     },
     "homepage": "https://github.com/noamokman/tsoa-demo#readme",
     "dependencies": {
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "swagger-ui-express": "^4.0.7",
         "tslib": "^1.10.0",
         "tsoa": "^2.4.11"
